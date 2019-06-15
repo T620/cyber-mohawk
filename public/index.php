@@ -2,7 +2,6 @@
   declare(strict_types=1);
   require_once dirname(__DIR__) . '/vendor/autoload.php';
   $damageReporter = new \CyberMohawk\DamageReporter();
-
 ?>
 <!doctype html>
   <head>
@@ -131,9 +130,11 @@
         <p class="centered">Impressed yet?</p>
       </div>
     </section>
-    
-          </body>
+  </body>
+
   <footer class="footer">
     <span class="copy"><i class="fas fa-copyright"></i>Cyberhawk 2019</span>
     <span class="credit">Created By Josh Tait</span>
   </footer>
+
+</html>
