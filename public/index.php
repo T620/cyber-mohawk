@@ -5,7 +5,27 @@
 
 ?>
 <!doctype html>
-  <h1> Hey! </h1>
+  <h1> Damage report for XC_11_T173_NORTH_SEA </h1>
+  <table class='table'>
+    <tr>
+      <td>
+        Location Ref #
+      </td>
+      <td>
+        Damage (if any)
+      </td>
+    </tr>
+    <?php 
+      $report = $damageReporter->generate();
 
-  <?php  $damageReporter->initalize(); ?>
+      for ($counter = 1; $counter < sizeOf($report); $counter++){
+        echo "<tr> <td>";
+        echo $counter;
+        echo "</td>";
+        echo "<td>";
+        echo $report[$counter];
+        echo "</td> </>";
+      }
+    ?>
+  </table>
 </html>
