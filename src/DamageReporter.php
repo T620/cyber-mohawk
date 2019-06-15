@@ -1,7 +1,7 @@
 <?php
   //declare(strict_types=1);
 
-  //namespace CyberMohawk;
+  namespace CyberMohawk;
 
   class DamageReporter {
     /*
@@ -22,35 +22,30 @@
       $factors = [3, 5];
       $index = 1;
       $nItems = 100;
-      $message = "";
-
 
       while ($index <= $nItems){
-        echo "current index: " + $index;
-        $message = determineMessage($index, $factors, $messages);
-        $report.push($message);
+        $message = $this -> determineMessage($index, $factors, $messages);
+        array_push($report, $message);
         $index++;
       }
-      echo 'report: ';
+
+      var_dump($report);
+      
       return $report;
     }
 
     
-    private function determineMessage($index, $factors, $messages){
+    public function determineMessage($index, $factors, $messages){
       /* determines which type of message should be returned based on the factors provided from determineMultiples
       */
-      $multipleOf = determineMultiples($index, $factors);
-      $message = ""; // shouldn't declare more than once
 
+      $multipleOf = $this -> determineMultiples($index, $factors);
+      $message = ""; // shouldn't declare more than once
+    
       // no point doing unnecessary work (logic) if we already know the answer
-      if (!$multipleOf['three'] || !$multipleOf['five'] || !$multipleOf['both']) {
-        $message = $messages[4]; // yay!
-      }
-      else{
-        // naaay
-        // There's either going to be both sets of damage (two)
+      if ($multipleOf['three'] || $multipleOf['five'] || $multipleOf['both']) {
         if ($multipleOf['both']){
-          $message = $messages[3];
+          $message = $messages[2];
         }
         // or either (one)
         else{
@@ -62,23 +57,29 @@
           }
         }
       }
-      echo "message: " + $message;
+      else{
+        // naaay
+        // There's either going to be both sets of damage (two)
+        $message = $messages[3];
+      }
       return $message;
     }
     
-    private function determineMultiples($index, $factors) {
+    public function determineMultiples($index, $factors) {
       /*
         returns three facts:
         multiple of three, five and (three and five)
       */
 
-      $multipleOf = [
+      $multipleOf = array(
         "three" => false,
         "five" => false,
         "both" => false
-      ];
+      );
 
-      for ($counter = 0; $counter <= $factors.length(); $counter++){
+      //var_dump($multipleOf);
+
+      for ($counter = 0; $counter <= sizeOf($factors); $counter++){
         $modulus = $index % $factors[$counter];
 
         if ($modulus === 0){
@@ -94,7 +95,7 @@
           $multipleOf['five'] = true;
         }
 
-        if ($multipleOfThree && $multipleOfFive){
+        if ($multipleOf['three'] && $multipleOf['five']){
           $multipleOf['both'] = true;
         }
 
@@ -102,6 +103,7 @@
         // so we just need to return out now
         // will refactor later so we can maybe have more factors
 
+        //var_dump($multipleOf);
         return $multipleOf;
       }
     
