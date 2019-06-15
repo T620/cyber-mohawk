@@ -2,29 +2,32 @@
   declare(strict_types=1);
   require_once dirname(__DIR__) . '/vendor/autoload.php';
   $damageReporter = new \CyberMohawk\DamageReporter();
-
 ?>
 <!doctype html>
   <head>
-    <title>Cyberhawk: Damage report for XC_11_T173_NORTH_SEA</title>
+    <title>Cyberhawk: Wind turbine damage reports</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="./assets/styles.css">
-    
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Roboto&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/01a8ab589a.js"></script>
   </head>
   <body>
 
     <header>
       <nav class="nav">
-        <span class="nav__menu">
-          menyoo
-        </span>
+        <a class="nav__menu" href="#0">
+          <i class="fas fa-bars fa-2x"></i>
+        </a>
         <span class="nav__brand">
-          Cyberhawk
+          <!-- please don't sue me because I stole your logo -->
+          <img src="./assets/logo.png" alt="cyberhawk corporate logo">
         </span>
-        <span class="nav__profile">
-          me
-        </span>
+        
+        <a href="#0" class="nav__profile">
+          <img src="https://unsplash.it/50/50/" alt="image of Josh Tait">
+          <span class="nav__profile__name">Josh<span>
+        </a>
       </nav>
       
       <div class="jumbotron" id="page-top">
@@ -43,7 +46,7 @@
           <div class="stat">
             <div class="stat-round">
                 <p class="title">12</p>
-                <span>^</span>
+                <span><i class="fas fa-angle-up"></i></span>
             </div>
             <p class="sub">More coating damage reports since last month</p>
           </div>
@@ -51,7 +54,7 @@
           <div class="stat">
             <div class="stat-round">
                 <p class="title">3</p>
-                <span>v</span>
+                <span><i class="fas fa-angle-down"></i></span>
             </div>
             <p class="sub">Fewer lightning strike reports than last month</p>
           </div>
@@ -59,7 +62,7 @@
           <div class="stat">
             <div class="stat-round">
                 <p class="title">50</p>
-                <span>%</span>
+                <span><i class="fas fa-percentage"></i></span>
             </div>
             <p class="sub">Increase in overall damage reports since last year</p>
           </div>
@@ -80,13 +83,14 @@
     <section>
       <div class="container">
         <h3 class="block">Full Report</h3>
-        <div class="report">
+        <div class="report print" id="report">
           <div class="report__header">
             <h2>Damage Report for: XC_11_T173_NORTH_SEA</h2>
+            <h3>Sat, 15 Jun 2019</h3>
           </div>
           <div class="report__content">
             <table class='table'>
-              <tr>
+              <tr class="head">
                 <td>
                   Location Ref #
                 </td>
@@ -113,11 +117,11 @@
             <p>This turbine needs some serious attention!</p>		</div>
           <div class="report__footer">
             <a href="#0">Print Report</a>
-            <span>Copyright 2019 Cyberhawk</span>
+            <span><i class="fas fa-copyright"></i> 2019 Cyberhawk</span>
           </div>
         </div>
       
-        <a class="centered" href="#page-top">Back to top</a>
+        <a class="centered" href="#page-top">Back to top <i class="fas fa-angle-up"></i></a>
       </div>
     </section>
 
@@ -126,9 +130,11 @@
         <p class="centered">Impressed yet?</p>
       </div>
     </section>
-    
-          </body>
+  </body>
+
   <footer class="footer">
-    <span class="copy">Cyberhawk 2019</span>
+    <span class="copy"><i class="fas fa-copyright"></i>Cyberhawk 2019</span>
     <span class="credit">Created By Josh Tait</span>
   </footer>
+
+</html>
