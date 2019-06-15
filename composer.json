@@ -1,13 +1,18 @@
 {
-    "name": "josh/cyber-mohawk",
-    "description": "\"Example Data visualisation app written in vanilla PHP, JS and CSS.",
-    "type": "project",
-    "license": "GNU General Public License v2.0",
-    "authors": [
-        {
-            "name": "Josh Tait",
-            "email": "josh.tait3@gmail.com"
-        }
-    ],
-    "require": {}
+  "name": "josh/cyber-mohawk",
+  "description": "\"Example Data visualisation app written in vanilla PHP, JS and CSS.",
+  "type": "project",
+  "license": "GNU General Public License v2.0",
+  "authors": [
+    {
+      "name": "Josh Tait",
+      "email": "josh.tait3@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "CyberMohawk\\": "src/"
+    }
+  }
 }
