@@ -9,7 +9,7 @@
     based on a 1-100 index.
     */
 
-    public function initalize(){
+    public function generate(){
       /*
         prepares the initial data structure
         Iterates over nItems
@@ -23,13 +23,13 @@
       $index = 1;
       $nItems = 100;
 
-      while ($index <= $nItems){
+      while ($index <= $nItems + 1){
         $message = $this -> determineMessage($index, $factors, $messages);
         array_push($report, $message);
         $index++;
       }
 
-      var_dump($report);
+      //var_dump($report);
       
       return $report;
     }
